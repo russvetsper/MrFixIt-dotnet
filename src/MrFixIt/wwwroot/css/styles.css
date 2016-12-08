@@ -1,0 +1,16 @@
+﻿body {
+    padding-top: 70px;
+    color: navy;
+}
+
+.status {
+    color: darkred;
+}
+
+h5 {
+    color: orangered;
+}
+
+.important a{
+    color: darkred;
+}

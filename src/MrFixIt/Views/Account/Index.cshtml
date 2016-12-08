@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Register";
+}
+
+@using System.Security.Claims
+
+<div class="text-center">
+    <h2>Mr. Fix-It</h2>
+    <h3>This is Mr. Fix-It. If this is your first visit, please visit our @Html.ActionLink("About Page", "Index", "About")</h3>
+</div><hr />
+@if (User.Identity.IsAuthenticated)
+{
+    <h4>Hello @User.Identity.Name!</h4>
+
+} else
+{
+    <div class="col col-md-6 text-center"><h2>@Html.ActionLink("Register", "Register")</h2></div>
+    <div class="col col-md-6 text-center"><h2>@Html.ActionLink("Log in", "Login")</h2></div>
+}
+
+
+
