@@ -1,10 +1,10 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
+@*displays text in about viws page*@
 <div class="container text-center">
     <h3>Welcome to Mr Fix-It</h3>
     <h4>The Work Source for Crowdsourced Repair Jobs.</h4>
@@ -33,6 +33,7 @@
 <div class="container">
     <h4>How To Become a Repair Memeber</h4>
     <p>
+        @*actionlinks to register account , worker create,jobs index and worker index*@
         To become a repair member, you'll need to create an @Html.ActionLink("Account", "Register", "Account") and register as a @Html.ActionLink("Worker", "Create", "Workers").
         To create an account, you won't need to include your name, but to register as a worker, we'll need your first and last name, which will be freely visible.
     </p>

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MrFixIt.Models
 {
+    //inherits from Entity Framework's DbContext. It contains a DbSet named job and worker table in our MRfixit database and lets us interact with it.
     public class MrFixItContext : IdentityDbContext<ApplicationUser>
     {
         public MrFixItContext()
@@ -15,6 +16,7 @@ namespace MrFixIt.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
+
             options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MrFixIt;integrated security=True");
         }
 

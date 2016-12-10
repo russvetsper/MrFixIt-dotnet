@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace MrFixIt.ViewModels
 {
+    //data that only shows up in the view, we use ViewModel instead of a Model. This way, Entity Framework won't create a new table in the database 
+    //will require email password and confirm password will need to match
     public class RegisterViewModel
     {
         [Required]

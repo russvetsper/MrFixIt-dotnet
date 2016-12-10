@@ -1,11 +1,13 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@*link to shared/_layout*@
+
 @{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h4>Welcome to Mr Fix-It</h4>
 
+@*if user identity authenticated will display name and last name and notify on screen that logged in *@ 
 @if (User.Identity.IsAuthenticated)
 {
     <p>@User.Identity.Name</p>

@@ -13,6 +13,9 @@ using Microsoft.EntityFrameworkCore;
 using MrFixIt.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
+
+//Startup.cs is the application's entry point. It wires up the configuration and services used by the app. ASP.NET calls Configure when the app starts.
+
 namespace MrFixIt
 {
     public class Startup
@@ -26,7 +29,7 @@ namespace MrFixIt
             Configuration = builder.Build();
         }
         // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
+       
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();

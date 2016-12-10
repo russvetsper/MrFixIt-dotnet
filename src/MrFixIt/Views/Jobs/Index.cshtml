@@ -1,12 +1,14 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Log In";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="text-center">
     <h3>Our Current Jobs</h3>
+    @*actionlink will alow add new job tab and redirect to creat views*@
     @Html.ActionLink("Add a new job", "Create")
 </div>
+
+@*will cycle thru jobs in model and display job title and job description for each job*@
 @foreach (var Job in Model)
 {
     <ul>
@@ -14,12 +16,15 @@
         <ul>
             <li>@Job.Description</li>
         </ul>
+       @*display info about worker is not assigned*@
         @if (Job.Worker == null)
         {
         <li class="btn">This job is unclaimed. @Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })</li>
-        }
-        else
-        {
+                }
+                else
+
+                @*else will display worker asignd*@
+                {
             <li class="btn">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
 
         }

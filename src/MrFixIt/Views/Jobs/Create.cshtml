@@ -4,12 +4,14 @@
 @{
 
 }
-
+@*this page allows to create job listings*@
 @model MrFixIt.Models.Job
 
     <h2>Create new Job</h2>
         <hr />
         <h4>Add a new job</h4>
+
+    @*using BeginForm will requere titel and description of a job listing*@ 
         @using (Html.BeginForm())
         {
             @Html.LabelFor(model => model.Title)

@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Http;
 
 namespace MrFixIt.Models
 {
+    //builds out table for worker
+    //incorrect. our database should be plural 
     public class Worker
     {
         [Key]

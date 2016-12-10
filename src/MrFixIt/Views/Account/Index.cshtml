@@ -1,7 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*do not know what this is... will delete in next stage of project*@
     ViewBag.Title = "Register";
 }
 
@@ -11,9 +13,12 @@
     <h2>Mr. Fix-It</h2>
     <h3>This is Mr. Fix-It. If this is your first visit, please visit our @Html.ActionLink("About Page", "Index", "About")</h3>
 </div><hr />
+@*checks if user is logged in and displays "user-name"*@
 @if (User.Identity.IsAuthenticated)
 {
     <h4>Hello @User.Identity.Name!</h4>
+
+    @*else will ask to register or login*@
 
 } else
 {

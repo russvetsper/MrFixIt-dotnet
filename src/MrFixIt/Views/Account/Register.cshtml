@@ -8,6 +8,7 @@
 
 <h2>Register a new worker</h2>
 <hr />
+@*build out registration form with requierd fields and will post to DB*@
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
     @Html.LabelFor(m => m.Email)

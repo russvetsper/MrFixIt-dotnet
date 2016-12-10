@@ -11,16 +11,19 @@
 @foreach (var Job in Model)
 {
     <ul>
+        @*dispaly jobs and title and status of job*@
         <li>@Job.Title</li>
         <ul>
             <li>@Job.Description</li>
         </ul>
+        @*if worker not assigned to job will list status unclaimed*@
         @if (Job.Worker == null)
         {
             <li class="btn">Status: This job is unclaimed.</li>
         }
         else
         {
+            @*else will display job is claimed by workers name and lastname*@
             <li class="btn">Status: This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
 
         }

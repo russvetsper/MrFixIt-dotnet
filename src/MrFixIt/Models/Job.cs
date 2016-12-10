@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace MrFixIt.Models
 {
+    //builds out table for jobs
+    //incorrect. our database should be plural 
     public class Job
     {
         [Key]
@@ -15,6 +17,7 @@ namespace MrFixIt.Models
         public bool Completed { get; set; }
         public bool Pending { get; set; }
         public bool Active { get; set; }
+        //public virtual links tables with worker
         public virtual Worker Worker { get; set; }
     }
 }

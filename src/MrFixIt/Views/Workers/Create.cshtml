@@ -1,8 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@*this is our create worker view page*@
 
 @using System.Security.Claims
 @model MrFixIt.Models.Worker
@@ -14,9 +10,11 @@
 <body>
     <h2>Create</h2>
     <hr />
+    @*looks if user is authenticated*@
     @if (User.Identity.IsAuthenticated)
     {
         <h4>You do not have a complete worker profile. Please create your worker profile</h4>
+        @*uses form to create worker, displaying fields for workers first name and last name*@
         @using (Html.BeginForm())
         {
             @Html.LabelFor(model => model.FirstName)

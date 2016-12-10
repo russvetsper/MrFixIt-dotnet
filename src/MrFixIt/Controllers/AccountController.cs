@@ -33,6 +33,7 @@ namespace MrFixIt.Controllers
         //    return View();
         //}
 
+        //the index method for routing to the view has been rewritten bellow in order to accomidate authentication, if logged in you see the view and you "name" will appear in <h4>Hello @User.Identity.Name!</h4>
         public IActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
@@ -40,18 +41,20 @@ namespace MrFixIt.Controllers
                 var thisWorker = db.Workers.FirstOrDefault(item => item.UserName == User.Identity.Name);
                 return View(thisWorker);
             }
+            //if not authenticated the view will ask you to log in or register
             else
             {
                 return View();
             }
         }
 
-
+        // routing method to access the register page
         public IActionResult Register()
         {
             return View();
         }
 
+        //when you register it will redirect to index if successful or reload the page and let you try again
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
@@ -67,10 +70,12 @@ namespace MrFixIt.Controllers
             }
         }
 
+        //method to go to the login view
         public IActionResult Login()
         {
             return View();
         }
+
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
@@ -86,6 +91,7 @@ namespace MrFixIt.Controllers
             }
         }
 
+        //this route will not appear in the navbar unless you are authenticated- if clicked you are logged out and rediredted to the index 
         [HttpGet]
         public async Task<IActionResult> LogOff()
         {

@@ -11,6 +11,7 @@ namespace MrFixIt.Controllers
     public class AboutController : Controller
     {
         // GET: /<controller>/
+        // this will direct a user to the about page
         public IActionResult Index()
         {
             return View();
