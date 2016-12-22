@@ -48,20 +48,24 @@ namespace MrFixIt.Controllers
             return RedirectToAction("Index");
         }
         //when in index (job/index) and click "caim this job" button you are direted to a "confirmation" (jobs/claim) page where you actually have the abuility to link a worker to a job in the database
-        public IActionResult Claim(int id)
-        {
-            var thisItem = db.Jobs.FirstOrDefault(items => items.JobId == id);
-            return View(thisItem);
-        }
+
+        //public IActionResult Claim(int id)
+        //{
+        //    var thisItem = db.Jobs.FirstOrDefault(items => items.JobId == id);
+        //    return View(thisItem);
+        //}
 
         //when on the "confirmation" (jobs/claim) page you can click "Claim This Job" and that will redirect you to the index after updating the WorkerId in the Jobs-table with the id of the user(worker) who clicked the button
-        [HttpPost]
-        public IActionResult Claim(Job job)
+       
+            
+            //[HttpPost]
+        public IActionResult Claim(int jobId, string userName)
         {
-            job.Worker = db.Workers.FirstOrDefault(i => i.UserName == User.Identity.Name);
+            var job = db.Jobs.FirstOrDefault(i => i.JobId == jobId);
+            job.Worker = db.Workers.FirstOrDefault(i => i.UserName == userName);
             db.Entry(job).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Content("Job caimed", "text/plain");
         }
     }
 }

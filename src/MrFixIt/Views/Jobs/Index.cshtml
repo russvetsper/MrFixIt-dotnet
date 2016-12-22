@@ -19,13 +19,19 @@
        @*display info about worker is not assigned*@
         @if (Job.Worker == null)
         {
-        <li class="btn">This job is unclaimed. @Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })</li>
-                }
-                else
+        <li class="HideBtn-@Job.JobId">
+            <button class="claimjob">Claim</button>
+            <input type="hidden" value="@Job.JobId" class="ThisJobId" />
+            <input type="hidden" value="@User.Identity.Name" class="ThisUserName-@Job.JobId" /></li>
+        
+            <div class="ClaimedJob-@Job.JobId"></div>
 
-                @*else will display worker asignd*@
-                {
-            <li class="btn">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
+        }
+        else
+
+        //else will display worker asignd
+        {
+            <li class="btn claimjob">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
 
         }
     </ul>
