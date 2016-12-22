@@ -2,17 +2,22 @@
 
 
 
-    $(document).ready(function () {
-        $('.Claim This Job').click(function () {
-            $.ajax({
-                type: 'GET',
-                dataType: 'json',
-                contentType: 'application/json',
-                url: '/Claim/Job'
-                success: function (model) {
-                    var resultString = '<br>Title: ' + model.title + '<br>Description: ' + model.description;
-                    $('#result1').html(resultString);
-                }
-            });
+$(function () {
+
+    //claim a job
+    $(".claimjob").click(function () {
+        // alert("clicked");
+        var jobid = $(this).siblings('.ThisJobId').val();
+        var username = $('.ThisUserName-' + jobid).val();
+        $(".HideBtn-" + jobid).hide();
+
+        $.ajax({
+            url: "/Jobs/Claim",
+            data: { jobId: jobid, userName: username },
+            type: 'GET',
+            success: function (result) {
+                $('.ClaimedJob-' + jobid).html(result);
+            }
         });
-    
+    });
+});
